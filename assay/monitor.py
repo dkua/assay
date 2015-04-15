@@ -39,7 +39,7 @@ def main_loop(arguments, batch_mode):
     file_watcher = Filesystem()
     file_watcher.add_paths(main_process_paths)
 
-    poller = unix.EPoll()
+    poller = unix.KQueue()
     poller.register(file_watcher)
     if batch_mode:
         reporter_class = BatchReporter
